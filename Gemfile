@@ -19,6 +19,9 @@ gem 'bcrypt', '~> 3.1.7'
 #Active model serializer
 gem "active_model_serializers", "~> 0.10.7"
 
+#Figaro 
+gem "figaro"
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

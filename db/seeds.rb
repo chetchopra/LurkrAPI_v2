@@ -17,13 +17,13 @@ sr4 = Subreddit.create(name: "baseball");
 sr6 = Subreddit.create(name: "cats");
 
 #Sample Users
-u1 = User.create(username: "ccabell", email: "x@gmail.com");
-u2 = User.create(username: "jsmith", email: "y@gmail.com");
-u3 = User.create(username: "jsmoke", email: "z@gmail.com");
-u4 = User.create(username: "aidir", email: "z@gmail.com");
-u5 = User.create(username: "noahf", email: "z@gmail.com");
-u6 = User.create(username: "laurah", email: "z@gmail.com");
-u7 = User.create(username: "dangn", email: "z@gmail.com");
+u1 = User.create(username: "ccabell", email: "x@gmail.com", password: "password");
+u2 = User.create(username: "jsmith", email: "y@gmail.com", password: "password");
+u3 = User.create(username: "jsmoke", email: "z@gmail.com", password: "password");
+u4 = User.create(username: "aidir", email: "z@gmail.com", password: "password");
+u5 = User.create(username: "noahf", email: "z@gmail.com", password: "password");
+u6 = User.create(username: "laurah", email: "z@gmail.com", password: "password");
+u7 = User.create(username: "dangn", email: "z@gmail.com", password: "password");
 
 #Sample Settings
 set1 = Setting.create(user_id: u1.id, numberOfCols: 3, theme_id: t1.id);
