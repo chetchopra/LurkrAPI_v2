@@ -22,6 +22,9 @@ gem "active_model_serializers", "~> 0.10.7"
 #Figaro 
 gem "figaro"
 
+#Rest-client to make hhtp requests
+gem 'rest-client'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
