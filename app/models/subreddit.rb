@@ -23,8 +23,23 @@ class Subreddit < ApplicationRecord
 
   # This method returns post data from a specific subreddit in JSON format
   def self.getSubredditPosts(subredditName)
-		# Hits provided subreddit url and parses the response
-		parsedResponse = JSON.parse(RestClient.get("http://reddit.com/r/#{subredditName}.json"))
+    # Hits provided subreddit url and parses the response
+    begin
+      response = RestClient.get("http://reddit.com/r/#{subredditName}.json")
+    rescue RestClient::ExceptionWithResponse => err
+      err.response
+      return {"error": err}
+    end
+    
+    parsedResponse = JSON.parse(response)
+
+    if parsedResponse["data"]["dist"] < 1
+      return {"error": "does not exsist"}
+    end
+    
+
+    
+  
 
 		# Traverses to the children (posts) in the response JSON
 		subredditPosts = parsedResponse["data"]["children"]
