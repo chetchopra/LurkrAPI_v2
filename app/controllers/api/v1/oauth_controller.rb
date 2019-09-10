@@ -34,13 +34,14 @@ class Api::V1::OauthController < ApplicationController
 		code: code, 
 		redirect_uri: ENV["redirect_uri"]}, 
 		{:Authorization => "Basic #{basicCode}"}) { |response, request, result|
-  		case response.code
- 			when 301, 302, 307
-    		response.follow_redirection
+			case response.code
+ 			when 401
+				#Do something when auth fails
+				render json: {"error": 401} 
 			else
 				response.return!
-				byebug
-				#Respond to front end with token. 
+				render json: JSON.parse(response)
+				#Respond to front end with token depending on the response code. 
 			end
 		}
 
